@@ -18,6 +18,7 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="assets/vendor/apexcharts/apexcharts.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -255,19 +256,19 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#">
           <i class="bi bi-people"></i>
           <span>Professors</span>
         </a>
-      </li>
+      </li> -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Login</span>
         </a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="about.html">
@@ -304,7 +305,7 @@
         <div class="row mb-3">
           <div class="row mb-3">
             <div class="col-12">
-              <span class="mb-3"><i class="bi bi-calendar-range"></i> <strong>Yearly Range</strong></span>
+              <span class="mb-3"><i class="bi bi-calendar-range"></i> <strong>Period Range</strong></span>
             </div>
           </div>
           <div class="row mb-3">
@@ -379,18 +380,46 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-9">
-                        <h5 id="title_production_year" class="card-title"></h5>
+                      <div class="col-7">
+                        <h5 id="title_incoming_period" class="card-title"></h5>
                       </div>
-                      <div class="col-3">
+                      <div class="col-5">
                         <div class="d-flex justify-content-end align_bt_download">
-                          <button type="button" class="btn btn-outline-info btn-sm" onclick="downloadRawData('production_data')">
+                          <div class="form-check form-switch align_bt_switch">
+                            <input class="form-check-input" type="checkbox" id="btOnlyActive1" checked>
+                            <label class="form-check-label" for="btOnlyActive1"> Active Only </label>
+                          </div>
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
                             <i class="bi bi-download me-1"></i> Raw Data
                           </button>
                         </div>
                       </div>
                     </div>
-                    <div id="production_by_year"></div>
+                    <div id="incoming_by_period"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-7">
+                        <h5 id="title_incoming_period_type" class="card-title"></h5>
+                      </div>
+                      <div class="col-5">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <div class="form-check form-switch align_bt_switch">
+                            <input class="form-check-input" type="checkbox" id="btOnlyActive2" checked>
+                            <label class="form-check-label" for="btOnlyActive2"> Active Only </label>
+                          </div>
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="incoming_by_period_type"></div>
                   </div>
                 </div>
               </div>
@@ -400,20 +429,191 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
-                        <h5 id="title_production_type_year" class="card-title"></h5>
+                        <h5 id="title_incoming_period_status" class="card-title"></h5>
                       </div>
                       <div class="col-3">
                         <div class="d-flex justify-content-end align_bt_download">
-                          <button type="button" class="btn btn-outline-info btn-sm" onclick="downloadRawData('production_data')">
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
                             <i class="bi bi-download me-1"></i> Raw Data
                           </button>
                         </div>
                       </div>
                     </div>
-                    <div id="production_by_type_year"></div>
+                    <div id="incoming_by_period_status"></div>
                   </div>
                 </div>
               </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-7">
+                        <h5 id="title_active_period" class="card-title"></h5>
+                      </div>
+                      <div class="col-5">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <div class="form-check form-switch align_bt_switch">
+                            <input class="form-check-input" type="checkbox" id="btOnlyActive3" checked>
+                            <label class="form-check-label" for="btOnlyActive3"> Active Only </label>
+                          </div>
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="active_by_period"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <h5 id="title_egress_period" class="card-title"></h5>
+                      </div>
+                      <div class="col-3">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="egress_by_period"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <h5 id="title_egress_period_type" class="card-title"></h5>
+                      </div>
+                      <div class="col-3">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="egress_by_period_type"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-7">
+                        <h5 id="title_performance_period_entry" class="card-title"></h5>
+                      </div>
+                      <div class="col-5">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <div class="form-check form-switch align_bt_switch">
+                            <input class="form-check-input" type="checkbox" id="btOnlyActive4" checked>
+                            <label class="form-check-label" for="btOnlyActive4"> Active Only </label>
+                          </div>
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="performance_by_period_entry"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <h5 id="title_discipline_period_status" class="card-title"></h5>
+                      </div>
+                      <div class="col-3">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="discipline_result_period" class="main-chart chart-activated"></div>
+                    <div id="discipline_result_status_period" class="apexcharts-canvas subchart apexcharts-theme- disable"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <h5 id="title_other_class_period_status" class="card-title"></h5>
+                      </div>
+                      <div class="col-3">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="other_class_result_period" class="main-chart chart-activated"></div>
+                    <div id="other_class_result_type_period" class="apexcharts-canvas subchart apexcharts-theme- disable"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <h5 id="title_activity_period_status" class="card-title"></h5>
+                      </div>
+                      <div class="col-3">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="activity_result_period" class="main-chart chart-activated"></div>
+                    <div id="activity_result_status_period" class="apexcharts-canvas subchart apexcharts-theme- disable"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <h5 id="title_incoming_period_type" class="card-title"></h5>
+                      </div>
+                      <div class="col-3">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="incoming_by_period_type"></div>
+                  </div>
+                </div>
+              </div> -->
 
               <!--<div class="col-4">
                 <div class="card">
@@ -477,7 +677,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="credits">
-      Copyright &copy; 2024 <a href="http://brenosantos.bssystems.com.br"> BSSystems </a> | Template de <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      Copyright &copy; 2024 <a href="https://brenosantos.bssystems.com.br">BSSystems</a> | Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </footer><!-- End Footer -->
 
@@ -492,6 +692,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script type="module" src="assets/js/script.js"></script>
 </body>
 </html>

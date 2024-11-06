@@ -1,0 +1,3166 @@
+{
+    "period": [
+        "2006/1",
+        "2006/2",
+        "2006/3",
+        "2006/4",
+        "2007/1",
+        "2007/2",
+        "2007/3",
+        "2007/4",
+        "2008/1",
+        "2008/2",
+        "2008/3",
+        "2008/4",
+        "2009/1",
+        "2009/2",
+        "2009/3",
+        "2009/4",
+        "2010/1",
+        "2010/2",
+        "2010/3",
+        "2010/4",
+        "2011/1",
+        "2011/2",
+        "2011/3",
+        "2011/4",
+        "2012/1",
+        "2012/2",
+        "2012/3",
+        "2012/4",
+        "2013/1",
+        "2013/2",
+        "2013/3",
+        "2013/4",
+        "2014/1",
+        "2014/2",
+        "2014/3",
+        "2014/4",
+        "2015/1",
+        "2015/2",
+        "2015/3",
+        "2015/4",
+        "2016/1",
+        "2016/2",
+        "2016/3",
+        "2016/4",
+        "2017/1",
+        "2017/2",
+        "2017/3",
+        "2017/4",
+        "2018/1",
+        "2018/2",
+        "2018/3",
+        "2018/4",
+        "2019/1",
+        "2019/2",
+        "2019/3",
+        "2019/4",
+        "2020/1",
+        "2020/2",
+        "2020/3",
+        "2020/4",
+        "2021/1",
+        "2021/2",
+        "2021/3",
+        "2021/4",
+        "2022/1",
+        "2022/2",
+        "2022/3",
+        "2022/4",
+        "2023/1",
+        "2023/2",
+        "2023/3",
+        "2023/4",
+        "2024/1"
+    ],
+    "status": [
+        "APROVADO",
+        "OUTROS",
+        "REPROVADO",
+        "TRANCADO"
+    ],
+    "data": [
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9,
+            0,
+            0,
+            0,
+            0,
+            17,
+            0,
+            0,
+            13,
+            11,
+            0,
+            0,
+            17,
+            11,
+            0,
+            1,
+            19,
+            9,
+            1,
+            0,
+            23,
+            18,
+            0,
+            0,
+            17,
+            17,
+            0,
+            0,
+            12,
+            11,
+            0,
+            0,
+            25,
+            22,
+            0,
+            0,
+            29,
+            13,
+            0,
+            0,
+            27,
+            18,
+            0,
+            0,
+            7
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            5,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            4,
+            5,
+            0,
+            0,
+            34
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            9,
+            0,
+            0,
+            3,
+            8,
+            0,
+            0,
+            6,
+            8,
+            0,
+            0,
+            5,
+            11,
+            0,
+            0,
+            11,
+            7,
+            0,
+            0,
+            9,
+            11,
+            0,
+            0,
+            8,
+            10,
+            0,
+            0,
+            13,
+            6,
+            0,
+            0,
+            3,
+            3,
+            0,
+            0,
+            5,
+            6,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    ],
+    "subchart": [
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0048 - TCC I"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    9
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    6,
+                    11
+                ],
+                [
+                    3,
+                    6
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    3,
+                    7,
+                    3
+                ],
+                [
+                    1,
+                    1,
+                    1
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    6,
+                    1,
+                    4
+                ],
+                [
+                    0,
+                    0,
+                    8
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    4,
+                    10,
+                    3
+                ],
+                [
+                    0,
+                    0,
+                    6
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    6,
+                    0,
+                    5
+                ],
+                [
+                    0,
+                    1,
+                    7
+                ],
+                [
+                    1,
+                    0,
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0048 - TCC I"
+            ],
+            "status": [
+                "APROVADO"
+            ],
+            "data": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    5,
+                    11,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    1
+                ],
+                [
+                    0,
+                    1,
+                    4
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    3,
+                    1,
+                    5
+                ],
+                [
+                    0,
+                    2,
+                    9
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0048 - TCC I"
+            ],
+            "status": [
+                "APROVADO"
+            ],
+            "data": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    11,
+                    9,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    10
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    10,
+                    7,
+                    1
+                ],
+                [
+                    1,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    6,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    3,
+                    8,
+                    5,
+                    1
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    8,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    6,
+                    5,
+                    5,
+                    1
+                ],
+                [
+                    5,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    2,
+                    9,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    1,
+                    8,
+                    3
+                ],
+                [
+                    0,
+                    0,
+                    8
+                ],
+                [
+                    0,
+                    0,
+                    2
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    4,
+                    2,
+                    5
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    0,
+                    10
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    12,
+                    11,
+                    2
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    5,
+                    8
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    7,
+                    5,
+                    10
+                ],
+                [
+                    0,
+                    1,
+                    5
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    8,
+                    6,
+                    15
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    0,
+                    3
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    1,
+                    8,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    11,
+                    4,
+                    12
+                ],
+                [
+                    3,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    5,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO"
+            ],
+            "data": [
+                [
+                    3,
+                    8,
+                    7
+                ],
+                [
+                    1,
+                    4,
+                    0
+                ],
+                [
+                    0,
+                    6,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0047 - ESTÁGIO SUP.",
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0074 - SEMAC I",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "activity": [
+                "SINF0048 - TCC I",
+                "SINF0049 - TCC II",
+                "SINF0094 - ESTÁGIO SUP."
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS"
+            ],
+            "data": [
+                [
+                    0,
+                    0,
+                    7
+                ],
+                [
+                    16,
+                    6,
+                    12
+                ]
+            ]
+        }
+    ]
+}

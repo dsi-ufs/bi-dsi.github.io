@@ -1,7 +1,12 @@
-const HOST = "localhost"
-const PROTOCOL = "http"
-// const HOST = "ppgeec.dca.ufrn.br"
-// const PROTOCOL = "https"
+const HOST = "localhost";
+const PROTOCOL = "http";
+
+import data_incoming from "../../data/incoming.json" with { type: "json" };
+import data_active from "../../data/active_performance.json" with { type: "json" };
+import data_egress from "../../data/egress.json" with { type: "json" };
+import data_si_classes from "../../data/si_classes.json" with { type: "json" };
+import data_other_classes from "../../data/other_classes.json" with { type: "json" };
+import data_activity from "../../data/activity_comp.json" with { type: "json" };
 
 /***********************************************************************************
 ****************************** Funções Utilitárias *********************************
@@ -35,36 +40,23 @@ function createExcelFile(data, key_main_data, label_main_data, key_other_data = 
     XLSX.writeFile(sheet, name_file);
 }
 
-function createTable(element, records) {
-    let dataTable = new simpleDatatables.DataTable(element, {
-        perPageSelect: [5, 10, 20, ["Todos", -1]],
-        labels: {
-            placeholder: "Pesquisar...",
-            searchTitle: "Pesquise dentro da tabela",
-            pageTitle: "Página {page}",
-            perPage: "registros por página",
-            noRows: "Sem registros",
-            info: "{start}-{end} de {rows} registros",
-            noResults: "Nenhum resultado corresponde à busca",
-        },
-        data: {
-            headings: Object.keys(records[0]),
-            data: records.map(item => Object.values(item))
-        }
-    });
-    return dataTable;
-}
-
-function getYearRange(start_year = null, end_year = null) {
-    if(start_year == null && end_year == null) {
-        end_year = new Date().getFullYear();
-        start_year = end_year - 4;
+function getPeriodRange(start_period = null, end_period = null) {
+    let num_period = 9;
+    let period = data_incoming.period.slice(-num_period);
+    let result = {start: period[0], end: period.at(-1)};
+    if (start_period == null && end_period != null && "\d{4}/[1-4]".test(end_period)) {
+        idx = data_incoming.index.indexOf(end_period);
+        period = data_incoming.index.slide((idx - num_period), (idx + 1));
     }
-    if(start_year == null && end_year != null && typeof end_year == "number")
-        start_year = end_year - 4;
-    if(end_year == null && start_year != null && typeof start_year == "number")
-        end_year = start_year + 4;
-    return {start: start_year, end: end_year}
+    if (end_period == null && start_period != null && "\d{4}/[1-4]".test(start_period)) {
+        idx = data_incoming.index.indexOf(start_period);
+        period = data_incoming.index.slide(idx, (idx + num_period + 1));
+    }
+    result["start"] = period[0];
+    result["end"] = period.at(-1);
+    result["idx_start"] = data_incoming.period.indexOf(result.start);
+    result["idx_end"] = data_incoming.period.indexOf(result.end);
+    return result;
 }
 
 function createBarChart(css_selector, records, x_label, y_label, maxY = null, is_percentage = false) {
@@ -86,8 +78,8 @@ function createBarChart(css_selector, records, x_label, y_label, maxY = null, is
 function createGroupedBarChart(css_selector, records, x_label, y_label) {
     let id_chart = css_selector.replace("#", "");
     var options = {
-        series: records[1].map((x) => Object.create({name: x[0], data: x[1]})),
-        chart: {id: id_chart, type: "bar", height: 350},
+        series: records[1],
+        chart: {id: id_chart, type: "bar", height: 350, width: "100%"},
         plotOptions: {bar: {horizontal: false, columnWidth: "55%", endingShape: "rounded"}},
         dataLabels: {enabled: false},
         stroke: {show: true, width: 2, colors: ["transparent"]},
@@ -100,78 +92,113 @@ function createGroupedBarChart(css_selector, records, x_label, y_label) {
     };
     var chart = new ApexCharts(document.querySelector(css_selector), options);
     chart.render();
-    return chart;
 }
 
-function createBoxPlot(css_selector, ppg_acronym, records, has_outliers = false) {
-    let id_chart = css_selector.replace("#", "");
-    var options = {
-        series: [
-            {name: "box", type: "boxPlot", data: [{x: ppg_acronym,
-                y: [records.min, records.quantile_1, records.median, records.quantile_3, records.max]}]}],
-        chart: {id: id_chart, type: "boxPlot", height: 350, toolbar: {
-            show: true, tools: {download: true, selection: false, zoom: false, zoomin: false, zoomout: false, pan: false, reset: false}
-        }},
-        colors: ["#33B2DF", "#FEB019"],
-        xaxis: {type: "string"},
-        tooltip: {shared: false, intersect: true},
-        plotOptions: {boxPlot: {colors: {upper: "#33B2DF", lower: "#546E7A"}}}
-    };
-    if (!has_outliers) {
-        options.series.splice(1, 1);
-        options.colors.splice(1, 1);
-    }
-    var chart = new ApexCharts(document.querySelector(css_selector), options);
-    chart.render();
-    return chart;
-}
-
-function createTreeMapPlot(css_selector, records) {
-    let id_chart = css_selector.replace("#", "");
+function createMultipleGroupedBarChart(css_selector_main, css_selector_subchart, records, x_label_1, x_label_2, y_label, subtitle_main) {
+    let id_main_chart = css_selector_main.replace("#", "");
+    let id_subchart = css_selector_subchart.replace("#", "");
     let colors = ["#33B2DF", "#546E7A", "#13D8AA", "#D4526E", "#A5978B",
-                  "#557808", "#F9A3A4", "#2B387C", "#662E9B", "#4E2E29",
-                  "#FF5733", "#96BF9D", "#3357FF", "#FF33A1", "#FFBD33",
-                  "#75FF33", "#33FFBD", "#FF3333", "#8A33FF", "#33FF8A"];
-        // ['#3B93A5', '#F7B844', '#ADD8C7', '#EC3C65', '#CDD7B6',
-        //     '#C1F666', '#D43F97', '#1E5D8C', '#421243', '#7F94B0',
-        //     '#EF6537', '#C0ADDB'];
-    var chart = new ApexCharts(document.querySelector(css_selector), {
-        series: [{data: records}], legend: {show: false},
-        chart: {id: id_chart, type: "treemap", height: 350},
+                  "#C7F464", "#F9A3A4", "#3F51B5", "#662E9B", "#2E294E"];
+    let idx_data_point = null;
+    var options_main = {
+        series: records[1],
+        chart: {id: id_main_chart, type: "bar", height: 350, width: "100%",
+            events: {
+                dataPointSelection: function (e, chart, opts) {
+                    var element_subchart = document.querySelector(css_selector_subchart);
+                    var element_main_chart = document.querySelector(css_selector_main);
+                    if (opts.selectedDataPoints[opts.seriesIndex].length === 1) {
+                        idx_data_point = opts.dataPointIndex;
+                        if (element_subchart.classList.contains("active")) {
+                            updateSubChart(id_subchart, records[2][idx_data_point]);
+                        } else {
+                            element_main_chart.classList.add("chart-activated")
+                            element_subchart.classList.add("active");
+                            element_subchart.classList.remove("disable");
+                            updateSubChart(id_subchart, records[2][idx_data_point]);
+                        }
+                    }
+                    if (opts.selectedDataPoints[opts.seriesIndex].length === 0) {
+                        element_main_chart.classList.remove("chart-activated")
+                        element_subchart.classList.remove("active");
+                        element_subchart.classList.add("disable");
+                    }
+                },
+                updated:  function (chart) {
+                    updateSubChart(id_subchart, records[2][idx_data_point]);
+                }
+            }
+        },
+        plotOptions: {bar: {horizontal: false, columnWidth: "55%", endingShape: "rounded"}},
+        dataLabels: {enabled: false},
+        stroke: {show: true, width: 2, colors: ["transparent"]},
+        xaxis: {categories: records[0], title: {text: x_label_1}},
+        yaxis: {title: {text: y_label}},
+        fill: {opacity: 1},
         colors: colors,
-        plotOptions: {treemap: {distributed: true, enableShades: false}}
+        tooltip: {y: { title: {text: y_label}}},
+        states: {
+            normal: {filter: {type: "desaturate"}},
+            active: {allowMultipleDataPointsSelection: false, filter: {type: "darken", value: 1}}},
+        subtitle: {text: subtitle_main, floating: true, offsetX: 15, offsetY: -5}
+    };
+
+    var main_chart = new ApexCharts(document.querySelector(css_selector_main), options_main);
+    main_chart.render();
+
+    var options_subchart = {
+        series: [{name: null, data: []}],
+        chart: {id: id_subchart, type: "bar", height: 550, width: "100%"},
+        plotOptions: {bar: {horizontal: false, columnWidth: "55%", endingShape: "rounded"}},
+        dataLabels: {enabled: false},
+        stroke: {show: true, width: 2, colors: ["transparent"]},
+        xaxis: {categories: [], title: {text: x_label_2}, labels: {rotate: -60}},
+        yaxis: {title: {text: y_label}},
+        fill: {opacity: 1},
+        colors: colors,
+        tooltip: {y: {title: {text: y_label}}}
+    };
+
+    var sub_chart = new ApexCharts(document.querySelector(css_selector_subchart), options_subchart);
+    sub_chart.render();
+
+    main_chart.addEventListener("dataPointSelection", function (e, main_chart, opts) {
+        var element_subchart = document.querySelector(id_subchart);
+        var element_main_chart = document.querySelector(id_main_chart);
+        if (opts.selectedDataPoints[opts.seriesIndex].length === 1) {
+            idx_data_point = opts.dataPointIndex;
+            if(element_subchart.classList.contains("active")) {
+                updateSubChart(id_subchart, records[2][idx_data_point]);
+            } else {
+                element_main_chart.classList.add("chart-activated");
+                element_subchart.classList.add("active");
+                updateSubChart(id_subchart, records[2][idx_data_point]);
+            }
+        }
+        if (opts.selectedDataPoints[opts.seriesIndex].length === 0) {
+            element_main_chart.classList.remove("chart-activated");
+            element_subchart.classList.remove("active");
+        }
     });
-    chart.render();
+
+    main_chart.addEventListener("updated", function (main_chart) {
+        updateSubChart(id_subchart, records[2][idx_data_point]);
+    });
 }
 
-function createNetPlot(records, id_network, style_net) {
-    let cy = cytoscape({
-        container: document.getElementById(id_network),
-        wheelSensitivity: 0.5,
-        textureOnViewport: true,
-        layout: {
-            name: "cose",
-            idealEdgeLength: 100,
-            nodeOverlap: 20,
-            refresh: 20,
-            fit: true,
-            padding: 30,
-            randomize: false,
-            componentSpacing: 100,
-            nodeRepulsion: 400000,
-            edgeElasticity: 100,
-            nestingFactor: 5,
-            gravity: 80,
-            numIter: 1000,
-            initialTemp: 200,
-            coolingFactor: 0.95,
-            minTemp: 1.0
-        },
-        style: style_net,
-        elements: records
-    });
-    window[id_network] = cy;
-    return cy;
+function updateSubChart(id_subchart, records) {
+    let series = null;
+    if (records != null) {
+        let keys = Object.keys(records);
+        let options = {xaxis: {categories: records[keys[0]], labels: {rotate: -60}}};
+        series = records[keys[1]].map((x, idx) => Object.create({name: x, data: records.data[idx]}));
+
+        if (series.length === 0)
+            series = [{name: null, data: []}];
+
+        ApexCharts.exec(id_subchart, "updateOptions", options, false, true);
+        ApexCharts.exec(id_subchart, "updateSeries", series, true);
+    }
 }
 
 async function downloadRawData(data_label) {
@@ -179,34 +206,21 @@ async function downloadRawData(data_label) {
     createExcelFile(result, "raw_data", "Produção");
 }
 
-function updateBarChart(id_chart, records) {
+function updateBarChart(id_chart, records, maxY = null) {
     let options = {
         xaxis: {categories: records.x_axis},
         yaxis: {min: 0, max: maxY != null ? maxY : Math.max(...records.y_axis)}
     };
     ApexCharts.exec(id_chart, "updateOptions", options, false, true);
-    ApexCharts.exec(id_chart, "updateSeries", [{data: result.y_axis}], true);
+    ApexCharts.exec(id_chart, "updateSeries", [{data: records.y_axis}], true);
 }
 
-async function updateGroupBarChart(apiUrl, id_chart) {
-    let records = await getData(apiUrl);
-    let options = {
-        xaxis: {categories: records[0]}
-    };
+function updateGroupBarChart(id_chart, records) {
+    let options = {xaxis: {categories: records[0]}};
     ApexCharts.exec(id_chart, "updateOptions", options, false, true);
-    ApexCharts.exec(id_chart, "updateSeries",
-        records[1].map((x) => Object.create({name: x[0], data: x[1]})), true);
+    ApexCharts.exec(id_chart, "updateSeries", records[1], true);
 }
 
-function updateBoxPlot(id_chart, records) {
-    ApexCharts.exec(id_chart, "updateSeries",
-        [{data: [{x: ppg_acronym, y: [records.min, records.quantile_1, records.median,
-            records.quantile_3, records.max]}]}], true);
-}
-
-function updateTreeMapChart(id_chart, records) {
-    ApexCharts.exec(id_chart, "updateSeries", [{data: records}], true);
-}
 /***********************************************************************************
 **************************** Simulação de Credenciamento ***************************
 ************************************************************************************/
@@ -256,298 +270,197 @@ function initSimulation() {
         }
     });
 }
-/***********************************************************************************
-************************************* Rankings *************************************
-************************************************************************************/
-async function getTopJournals(n_records) {
-    const apiUrl = `${PROTOCOL}://${HOST}:8000/rankings/top-journals/?n_records=${n_records}`;
-    var result = await getData(apiUrl);
-    return createTable("#table_top_journals", result);
-}
-
-async function getTopCitedManuscripts(n_records) {
-    const apiUrl = `${PROTOCOL}://${HOST}:8000/rankings/top-cited-manuscripts/?n_records=${n_records}`;
-    var result = await getData(apiUrl);
-    return createTable("#table_top_cited_articles", result);
-}
 
 /***********************************************************************************
 ************************************* Análises *************************************
 ************************************************************************************/
-async function getProductionByYear(apiUrl) {
-    document.getElementById("title_production_year").innerHTML = "Produção por Ano <span>(Conferência e Periódico)</span>";
-    let result = await getData(apiUrl);
-    createBarChart("#production_by_year", result, "Ano", "Número de Manuscritos");
-}
-
-async function getProductionByTypeYear(apiUrl) {
-    document.getElementById("title_production_type_year").innerHTML = "Produção por Ano e Tipo";
-    let result = await getData(apiUrl);
-    createGroupedBarChart("#production_by_type_year", result, "Ano", "Número de Manuscritos");
-}
-
-async function getInterPercentByYear(apiUrl) {
-    document.getElementById("title_inter_percent_year").innerHTML = "Internacionalização por Ano <span>(Percentual)</span>";
-    document.getElementById("title_total_inter_percent").innerHTML = "Internacionalização <span>(Total)</span>";
-    let result = await getData(apiUrl);
-    document.getElementById("total_inter_percent").innerHTML = result.total_inter_percent;
-    createBarChart("#inter_percent_by_year", result.percentages, "Ano", "Percentual", 100, true);
-}
-
-async function getOpenAccessPercentByYear(apiUrl) {
-    let is_open_access = document.getElementById("btOpenAccess").checked;
-    document.getElementById("title_open_access_year").innerHTML = "Artigos " +
-        (is_open_access ? "Open" : "Closed") + "-Access por Ano <span>(Percentual)</span>";
-    let result = await getData(apiUrl);
-    createBarChart("#open_access_by_year", result, "Ano", "Percentual", 100, true);
-}
-
-async function getJournalProductionByQualityIndicatorYear(apiUrl, id_title, title, id_chart, quality_indicator = "stratum", metric = "num_paper", label_metric = "Número de Manuscritos") {
-    document.getElementById(id_title).innerHTML = title;
-    let result = await getData(`${apiUrl}&quality_indicator=${quality_indicator}&metric=${metric}`);
-    createGroupedBarChart(id_chart, result, "Ano", label_metric);
-}
-
-async function getTotalCitationByOATypeYear(apiUrl) {
-    document.getElementById("title_citation_oa_year").innerHTML = "Total de Citações por Ano e Tipo de Open-Access";
-    let result = await getData(apiUrl);
-    createGroupedBarChart("#citation_oa_year", result, "Ano", "Total de Citações");
-}
-
-async function getInterPercentPPG(apiUrl, ppg_acronym) {
-    let result = await getData(apiUrl);
-    document.getElementById("title_inter_percent_ppg").innerHTML = "Internacionalização <span>(Gini: " +
-        result.gini_ppg + ")</span>";
-    createBoxPlot("#inter_percent_ppg_chart", ppg_acronym, result);
-}
-
-async function getIndicesH(apiUrl, ppg_acronym) {
-    let result = await getData(apiUrl);
-    document.getElementById("title_h_index_ppg").innerHTML = "Índices h <span>(Gini: " + result.gini_ppg + ")</span>";
-    document.getElementById("title_h2_index").innerHTML = "h2-index";
-    document.getElementById("h2_index_ppg").innerHTML = result.h2_index;
-    limit_h_index = [result.min, result.max];
-    createBoxPlot("#h_index_chart", ppg_acronym, result);
-}
-
-async function getProdutivityScorePPG(apiUrl, ppg_acronym) {
-    let result = await getData(apiUrl);
-    document.getElementById("title_produtivity_ppg").innerHTML = "Produtividade <span>(Gini: " +
-        result.gini_ppg + ")</span>";
-    document.getElementById("title_produtivity_mean").innerHTML = "Produtividade <span>(Média)</span>";
-    document.getElementById("produtivity_mean_ppg").innerHTML = result.mean.toString().replace(".", ",");
-    createBoxPlot("#produtivity_ppg_chart", ppg_acronym, result);
-}
-
-async function getStudentCountByLevelStatusYear(apiUrl, id_title, title, id_chart, label_metric = "Número de Discentes") {
-    document.getElementById(id_title).innerHTML = title;
-    let result = await getData(apiUrl);
-    createGroupedBarChart(id_chart, result, "Ano", label_metric);
-}
-
-async function getTotalStudentsInPeriod(apiUrl, to_update = false) {
+function getIncomingByPeriod(to_update = false) {
+    const only_active = document.getElementById("btOnlyActive1").checked;
+    let data = only_active ? data_incoming.total_only_active : data_incoming.total;
+    let result = Object.create({x_axis: data_incoming.period.slice(
+        periodRange.idx_start, periodRange.idx_end + 1),
+        y_axis: data.slice(periodRange.idx_start, periodRange.idx_end + 1)});
     if (!to_update) {
-        let titles_card = [
-            {"id_title": "title_concluded_student", "title": "Concluídos no Período"},
-            {"id_title": "title_cancelled_student", "title": "Cancelados no Período"},
-            {"id_title": "title_activated_student", "title": "Ativos no Período"}
-        ];
-        titles_card.map((x) => document.getElementById(x.id_title).innerHTML = x.title);
-    }
-    let values_card = [
-        {"id_value": "msc_concluded_student", "level": "Mestrado", "status": "Concluído"},
-        {"id_value": "phd_concluded_student", "level": "Doutorado", "status": "Concluído"},
-        {"id_value": "msc_cancelled_student", "level": "Mestrado", "status": "Cancelado"},
-        {"id_value": "phd_cancelled_student", "level": "Doutorado", "status": "Cancelado"},
-        {"id_value": "msc_activated_student", "level": "Mestrado", "status": "Ativo"},
-        {"id_value": "phd_activated_student", "level": "Doutorado", "status": "Ativo"},
-    ];
-    let result = await getData(apiUrl);
-    values_card.map((x) => document.getElementById(x.id_value).innerHTML = `${x.level}: ${result[x.level][x.status]} de ${result[x.level]["Ingresso"]}`);
-}
-
-async function getSDGThesisInPeriod(apiUrl, to_update = false) {
-    let result = await getData(apiUrl);
-    if(!to_update) {
-        document.getElementById("title_sdg_monograph").innerHTML = "Objetivos de Desenvolvimento Sustentável <span>(Dissertações e Teses)</span>";
-        createTreeMapPlot("#sgd_monograph", result);
+        document.getElementById("title_incoming_period").innerHTML = "Ingressantes por Período";
+        createBarChart("#incoming_by_period", result, "Período", "Nº. de Discentes");
     } else {
-        updateTreeMapChart("sgd_monograph", result);
+        updateBarChart("incoming_by_period", result);
     }
 }
 
-function getProgramEndPoints(start_year = null, end_year = null) {
-    let yearRange = (document.getElementById("start_year").value == null && document.getElementById("end_year").value == null) ?
-        getYearRange() : getYearRange(start_year, end_year);
-    document.getElementById("start_year").value = yearRange.start;
-    document.getElementById("end_year").value = yearRange.end;
-    let is_open_access = document.getElementById("btOpenAccess").checked;
-    let only_permanent = document.getElementById("ckOnlyPermanent").checked;
-    let end_points = {
-        "production_by_year": `${PROTOCOL}://${HOST}:8000/analysis/production-by-year/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "production_by_type_year": `${PROTOCOL}://${HOST}:8000/analysis/production-by-type-year/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "inter_percent_by_year": `${PROTOCOL}://${HOST}:8000/analysis/inter_percent-by-year/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "oa_percent_by_year": `${PROTOCOL}://${HOST}:8000/analysis/oa-percent-by-year/?start_year=${yearRange.start}&end_year=${yearRange.end}&is_open_access=${is_open_access.toString()}`,
-        "journals_by_year_indicator": `${PROTOCOL}://${HOST}:8000/analysis/journals-by-year-indicator/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "total_citation_by_oa_type_year": `${PROTOCOL}://${HOST}:8000/analysis/total-citation-by-type-oa-year/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "inter_percent_ppg": `${PROTOCOL}://${HOST}:8000/analysis/inter-percent-ppg/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "h_indexes_ppg": `${PROTOCOL}://${HOST}:8000/analysis/h-indexes-ppg/?only_permanent=${only_permanent.toString()}`,
-        "produtivity_ppg": `${PROTOCOL}://${HOST}:8000/analysis/produtivity-score-ppg/?only_permanent=${only_permanent.toString()}`,
-        // "ppg_network": `${PROTOCOL}://${HOST}:8000/analysis/ppg-net/`,
-        "production_data": `${PROTOCOL}://${HOST}:8000/download/raw-data/?start_year=${yearRange.start}&end_year=${yearRange.end}&filter_production=true`,
-        "all_data": `${PROTOCOL}://${HOST}:8000/download/raw-data/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "only_journal": `${PROTOCOL}://${HOST}:8000/download/raw-data/?start_year=${yearRange.start}&end_year=${yearRange.end}&only_journal=true`,
-    };
-    return end_points;
-}
-
-function getStudentsEndPoints(start_year, end_year) {
-    let yearRange = (document.getElementById("student_start_year").value == null && document.getElementById("student_end_year").value == null) ?
-        getYearRange() : getYearRange(start_year, end_year);
-    document.getElementById("student_start_year").value = yearRange.start;
-    document.getElementById("student_end_year").value = yearRange.end;
-    let end_points = {
-        "msc_students_by_status_year": `${PROTOCOL}://${HOST}:8000/analysis/students-by-status-year/?start_year=${yearRange.start}&end_year=${yearRange.end}&level=MESTRADO`,
-        "phd_students_by_status_year": `${PROTOCOL}://${HOST}:8000/analysis/students-by-status-year/?start_year=${yearRange.start}&end_year=${yearRange.end}&level=DOUTORADO`,
-        "total_students_in_period": `${PROTOCOL}://${HOST}:8000/analysis/total-students-in-period/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "msc_data": `${PROTOCOL}://${HOST}:8000/download/students-raw-data/?start_year=${yearRange.start}&end_year=${yearRange.end}&level=MESTRADO`,
-        "phd_data": `${PROTOCOL}://${HOST}:8000/download/students-raw-data/?start_year=${yearRange.start}&end_year=${yearRange.end}&level=DOUTORADO`
-    };
-    return end_points;
-}
-
-function getMonographEndPoints(start_year, end_year) {
-    let yearRange = (document.getElementById("monograph_start_year").value == null && document.getElementById("monograph_end_year").value == null) ?
-        getYearRange() : getYearRange(start_year, end_year);
-    document.getElementById("monograph_start_year").value = yearRange.start;
-    document.getElementById("monograph_end_year").value = yearRange.end;
-    let end_points = {
-        "sdg_monographs_in_period": `${PROTOCOL}://${HOST}:8000/analysis/sdg-monographs-in-period/?start_year=${yearRange.start}&end_year=${yearRange.end}`,
-        "all_data": `${PROTOCOL}://${HOST}:8000/download/monographs-raw-data/?start_year=${yearRange.start}&end_year=${yearRange.end}`
-    };
-    return end_points;
-}
-
-function initProgramDashboard(end_points, to_update = false) {
+function getIncomingByPeriodType(to_update = false) {
+    const only_active = document.getElementById("btOnlyActive2").checked;
+    let data = [only_active ? data_incoming.entry_type_only_active : data_incoming.entry_type];
+    data[1] = only_active ? data_incoming.data_entry_type_only_active : data_incoming.data_entry_type;
+    let result = [data_incoming.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    result[1] = data[0].map((x, idx) => Object.create({name: x, data: data[1][idx].slice(
+        periodRange.idx_start, periodRange.idx_end + 1)}));
     if (!to_update) {
-        getProductionByYear(end_points["production_by_year"]);
-        getProductionByTypeYear(end_points["production_by_type_year"]);
-        getInterPercentByYear(end_points["inter_percent_by_year"]);
-        getOpenAccessPercentByYear(end_points["oa_percent_by_year"]);
-        getJournalProductionByQualityIndicatorYear(end_points["journals_by_year_indicator"],
-            "title_journal_quality_indicator_year", "Produção de Periódicos por Ano e Qualis",
-            "#journal_quality_indicator_year");
-        getJournalProductionByQualityIndicatorYear(end_points["journals_by_year_indicator"],
-            "title_citation_journal_quality_indicator_year", "Total de Citações em Periódicos por Ano e Qualis",
-            "#citation_journal_quality_indicator_year", "stratum", "citation_num", "Total de Citações");
-        getJournalProductionByQualityIndicatorYear(end_points["journals_by_year_indicator"],
-            "title_journal_label_jif_year", "Produção de Periódicos por Ano e Quartil do Fator de Impacto",
-            "#journal_label_jif_year", "label_jif");
-        getJournalProductionByQualityIndicatorYear(end_points["journals_by_year_indicator"],
-            "title_citation_journal_label_jif_year", "Total de Citações em Periódicos por Ano e Quartil do Fator de Impacto",
-            "#citation_journal_label_jif_year", "label_jif", "citation_num", "Total de Citações");
-        getTotalCitationByOATypeYear(end_points["total_citation_by_oa_type_year"]);
-        getInterPercentPPG(end_points["inter_percent_ppg"], ppg_acronym);
-        getIndicesH(end_points["h_indexes_ppg"], ppg_acronym);
-        getProdutivityScorePPG(end_points["produtivity_ppg"], ppg_acronym);
-    }
-}
-
-function initRankings() {
-    let tables = Object();
-    tables["top_journals"] = getTopJournals(50);
-    tables["top_cited_manuscripts"] = getTopCitedManuscripts(30);
-    return tables;
-}
-
-function initStudentDashboard(end_points, to_update = false) {
-    if (!to_update) {
-        getTotalStudentsInPeriod(end_points["total_students_in_period"]);
-        getStudentCountByLevelStatusYear(end_points["msc_students_by_status_year"], "title_msc_students_by_status_year",
-            "Alunos de Mestrado por Ano e Status", "#msc_students_by_status_year");
-        getStudentCountByLevelStatusYear(end_points["phd_students_by_status_year"], "title_phd_students_by_status_year",
-            "Alunos de Doutorado por Ano e Status", "#phd_students_by_status_year");
+        document.getElementById("title_incoming_period_type").innerHTML = "Ingressantes por Período e Tipo de Entrada";
+        createGroupedBarChart("#incoming_by_period_type", result, "Período", "Nº. de Discentes");
     } else {
-        getTotalStudentsInPeriod(end_points["total_students_in_period"], to_update);
-        updateGroupBarChart(end_points["msc_students_by_status_year"], "msc_students_by_status_year");
-        updateGroupBarChart(end_points["phd_students_by_status_year"], "phd_students_by_status_year");
+        updateGroupBarChart("incoming_by_period_type", result);
     }
 }
 
-function initMonographDashboard(end_points, to_update = false) {
-    getSDGThesisInPeriod(end_points["sdg_monographs_in_period"], to_update);
+function getIncomingByPeriodStatus(to_update = false) {
+    let result = [data_incoming.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    result[1] = data_incoming.status.map((x, idx) => Object.create({name: x,
+        data: data_incoming.data_status[idx].slice(
+            periodRange.idx_start, periodRange.idx_end + 1)}));
+    if (!to_update) {
+        document.getElementById("title_incoming_period_status").innerHTML = "Ingressantes por Período e Situação";
+        createGroupedBarChart("#incoming_by_period_status", result, "Período", "Nº. de Discentes");
+    } else {
+        updateGroupBarChart("incoming_by_period_status", result);
+    }
 }
 
-var dataSimulation = null;
-const ppg_acronym = "PPgEEC/UFRN";
-var end_points = null;
-var dataTables = null;
-var netsPPG = null;
-
-if (document.body.id == "simulation") {
-    initSimulation();
-} else {
-    var limit_h_index = null;
-    end_points = getProgramEndPoints();
-    initProgramDashboard(end_points);
+function getActiveByPeriod(to_update = false) {
+    const only_active = document.getElementById("btOnlyActive3").checked;
+    let data = only_active ? data_active.total_only_active : data_active.total;
+    let result = Object.create({x_axis: data_active.period.slice(
+        periodRange.idx_start, periodRange.idx_end + 1),
+        y_axis: data.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    if (!to_update) {
+        document.getElementById("title_active_period").innerHTML = "Ativos por Período";
+        createBarChart("#active_by_period", result, "Período", "Nº. de Discentes");
+    } else {
+        updateBarChart("active_by_period", result);
+    }
 }
 
-document.getElementById("btOpenAccess").addEventListener("change", async () => {
+function getPerformanceByPeriodStatus(to_update = false) {
+    const only_active = document.getElementById("btOnlyActive4").checked;
+    let data = [data_active.status];
+    data[1] = only_active ? data_active.data_only_active: data_active.data;
+    let result = [data_active.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    result[1] = data[0].map((x, idx) => Object.create({name: x, data: data[1][idx].slice(
+        periodRange.idx_start, periodRange.idx_end + 1)}));
+    if (!to_update) {
+        document.getElementById("title_performance_period_entry").innerHTML = "Rendimento por Entrada e Período";
+        createGroupedBarChart("#performance_by_period_entry", result, "Período", "Nº. de Discentes");
+    } else {
+        updateGroupBarChart("performance_by_period_entry", result);
+    }
+}
+
+function getEgressByPeriod(to_update = false) {
+    let result = Object.create({x_axis: data_egress.period.slice(
+        periodRange.idx_start, periodRange.idx_end + 1),
+        y_axis: data_egress.total.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    if (!to_update) {
+        document.getElementById("title_egress_period").innerHTML = "Egressos por Período";
+        createBarChart("#egress_by_period", result, "Período", "Nº. de Discentes");
+    } else {
+        updateBarChart("active_by_period", result);
+    }
+}
+
+function getEgressByPeriodType(to_update = false) {
+    let result = [data_egress.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    result[1] = data_egress.entry_type.map((x, idx) => Object.create({name: x,
+        data: data_egress.data_entry_type[idx].slice(periodRange.idx_start, periodRange.idx_end + 1)}));
+    if (!to_update) {
+        document.getElementById("title_egress_period_type").innerHTML = "Egressos por Período e Tipo de Entrada";
+        createGroupedBarChart("#egress_by_period_type", result, "Período", "Nº. de Discentes");
+    } else {
+        updateGroupBarChart("egress_by_period_type", result);
+    }
+}
+
+function getDisciplineByPeriodStatus(title_id, id_chart, id_subchart, only_si = true, to_update = false) {
+    let data_chart = only_si ? data_si_classes : data_other_classes;
+    let result = [data_chart.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    result[1] = data_chart.status.map((x, idx) => Object.create({name: x,
+        data: data_chart.data[idx].slice(periodRange.idx_start, periodRange.idx_end + 1)}));
+    result[2] = data_chart.subchart.slice(periodRange.idx_start, periodRange.idx_end + 1);
+    if (!to_update) {
+        document.getElementById(title_id).innerHTML = `Disciplinas por Período e Situação <span> (${only_si ? "DSI" : "Outros"}) </span>`;
+        // createMultipleGroupedBarChart(id_chart, id_subchart, result, "Period", "Class",
+        //     "Number of Students", "(Click on any period bar to see details)");
+        createMultipleGroupedBarChart(id_chart, id_subchart, result, "Período", "Disciplina",
+            "Nº. de Discentes", "(Clique em qualquer barra de um período para ver detalhes)");
+    } else {
+        updateGroupBarChart(id_chart, result);
+    }
+}
+
+function getActivityByPeriodStatus(to_update = false) {
+    let result = [data_activity.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    result[1] = data_activity.status.map((x, idx) => Object.create({name: x,
+        data: data_activity.data[idx].slice(periodRange.idx_start, periodRange.idx_end + 1)}));
+    result[2] = data_activity.subchart.slice(periodRange.idx_start, periodRange.idx_end + 1);
+    if (!to_update) {
+        document.getElementById("title_activity_period_status").innerHTML = "Atividades por Período e Situação";
+        // createMultipleGroupedBarChart("#activity_result_period", "#activity_result_status_period",
+        //     result, "Period", "Activity", "Number of Students", "(Click on any period bar to see details)");
+        createMultipleGroupedBarChart("#activity_result_period", "#activity_result_status_period",
+            result, "Período", "Atividade", "Nº. de Discentes", "(Clique em qualquer barra de um período para ver detalhes)");
+    } else {
+        updateGroupBarChart("activity_result_period", result);
+    }
+}
+
+function initDashboard(start_year = null, end_year = null, to_update = false) {
+    periodRange = (start_year == null && end_year == null) ?
+        getPeriodRange() : getPeriodRange(start_year, end_year);
+    document.getElementById("start_year").value = periodRange.start;
+    document.getElementById("end_year").value = periodRange.end;
+    console.log(start_year, end_year);
+    getIncomingByPeriod(to_update);
+    getIncomingByPeriodType(to_update);
+    getIncomingByPeriodStatus(to_update);
+    getActiveByPeriod(to_update);
+    getEgressByPeriod(to_update);
+    getEgressByPeriodType(to_update);
+    getPerformanceByPeriodStatus(to_update);
+    getDisciplineByPeriodStatus("title_discipline_period_status",
+        "#discipline_result_period", "#discipline_result_status_period", true, to_update);
+    getDisciplineByPeriodStatus("title_other_class_period_status",
+        "#other_class_result_period", "#other_class_result_type_period", false, to_update);
+    getActivityByPeriodStatus(to_update);
+}
+
+var periodRange = null;
+
+initDashboard();
+
+document.getElementById("btOnlyActive1").addEventListener("change", () => {
     let start_year = document.getElementById("start_year").value;
     let end_year = document.getElementById("end_year").value;
-    const yearRange = (start_year == null && end_year == null) ?
-        getYearRange() : getYearRange(start_year, end_year);
-    const is_open_access = document.getElementById("btOpenAccess").checked;
-    document.getElementById("title_open_access_year").innerHTML = "Artigos " +
-        (is_open_access ? "Open" : "Closed") + "-Access por Ano <span>(Percentual)</span>";
-    const apiUrl = `${PROTOCOL}://${HOST}:8000/analysis/oa-percent-by-year/?start_year=${yearRange.start}&end_year=${yearRange.end}&is_open_access=${is_open_access.toString()}`;
-    var result = await getData(apiUrl);
-    ApexCharts.exec("open_access_by_year", "updateSeries", [{
-        data: result.y_axis}], true);
+    periodRange = (start_year == null && end_year == null) ?
+        getPeriodRange() : getPeriodRange(start_year, end_year);
+    getIncomingByPeriod(true);
 });
 
-document.getElementById("program-tab").addEventListener("click", function() {
-    end_points = getProgramEndPoints();
+document.getElementById("btOnlyActive2").addEventListener("change", () => {
+    let start_year = document.getElementById("start_year").value;
+    let end_year = document.getElementById("end_year").value;
+    periodRange = (start_year == null && end_year == null) ?
+        getPeriodRange() : getPeriodRange(start_year, end_year);
+    getIncomingByPeriodType(true);
 });
 
-document.getElementById("ranking-tab").addEventListener("click", function() {
-    if (dataTables == null) {
-        dataTables = initRankings();
-    }
+document.getElementById("btOnlyActive3").addEventListener("change", () => {
+    let start_year = document.getElementById("start_year").value;
+    let end_year = document.getElementById("end_year").value;
+    periodRange = (start_year == null && end_year == null) ?
+        getPeriodRange() : getPeriodRange(start_year, end_year);
+    getActiveByPeriod(true);
 });
 
-document.getElementById("students-tab").addEventListener("click", function() {
-    end_points = getStudentsEndPoints();
-    initStudentDashboard(end_points);
+document.getElementById("btOnlyActive4").addEventListener("change", () => {
+    let start_year = document.getElementById("start_year").value;
+    let end_year = document.getElementById("end_year").value;
+    periodRange = (start_year == null && end_year == null) ?
+        getPeriodRange() : getPeriodRange(start_year, end_year);
+    getPerformanceByPeriodStatus(true);
 });
 
-document.getElementById("bt_student_update").addEventListener("click", () => {
-    let start_year = document.getElementById("student_start_year").value;
-    let end_year = document.getElementById("student_end_year").value;
-    end_points = getStudentsEndPoints(start_year, end_year);
-    initStudentDashboard(end_points, true);
+document.getElementById("bt_update").addEventListener("click", () => {
+    periodRange = null;
+    var start_year = document.getElementById("start_year").value;
+    var end_year = document.getElementById("end_year").value;
+    initDashboard(start_year, end_year, true);
 });
-
-document.getElementById("monograph-tab").addEventListener("click", function() {
-    end_points = getMonographEndPoints();
-    initMonographDashboard(end_points);
-});
-
-document.getElementById("bt_monograph_update").addEventListener("click", () => {
-    let start_year = document.getElementById("monograph_start_year").value;
-    let end_year = document.getElementById("monograph_end_year").value;
-    end_points = getMonographEndPoints(start_year, end_year);
-    initMonographDashboard(end_points, true);
-});
-
-// document.getElementById("nets-tab").addEventListener("click", function() {
-//     if (netsPPG == null) {
-//         netsPPG = getPPGNetwork(end_points["ppg_network"], ppg_acronym);
-//     }
-// });
-
-// document.getElementById("bt_update").addEventListener("click", () => {
-//     var start_year = document.getElementById("start_year").value;
-//     var end_year = document.getElementById("end_year").value;
-//     updateDashboard(ppg_acronym, start_year, end_year);
-// });
