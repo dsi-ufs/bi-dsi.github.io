@@ -382,7 +382,7 @@ function getSuccessRateByPeriod(to_update = false) {
         document.getElementById("title_success_rate_period").innerHTML = "Taxa de Sucesso por Período";
         createBarChart("#success_rate_by_period", result, "Período", "Percentual", 100, true);
     } else {
-        updateBarChart("success_rate_by_period", result);
+        updateBarChart("success_rate_by_period", result, "Percentual", 100, true);
     }
 }
 
@@ -421,7 +421,7 @@ function getIncomingByPeriod(to_update = false) {
         document.getElementById("title_incoming_period").innerHTML = "Ingressantes por Período";
         createBarChart("#incoming_by_period", result, "Período", "Nº. de Discentes");
     } else {
-        updateBarChart("incoming_by_period", result);
+        updateBarChart("incoming_by_period", result, "Nº. de Discentes");
     }
 }
 
