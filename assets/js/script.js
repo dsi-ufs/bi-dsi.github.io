@@ -7,6 +7,9 @@ import data_egress from "../../data/egress.json" with { type: "json" };
 import data_si_classes from "../../data/si_classes.json" with { type: "json" };
 import data_other_classes from "../../data/other_classes.json" with { type: "json" };
 import data_activity from "../../data/activity_comp.json" with { type: "json" };
+import data_success_rate from "../../data/success_rate.json" with { type: "json" };
+import data_si_approv_rates from "../../data/si_approv_rates.json" with { type: "json" };
+import data_other_approv_rates from "../../data/other_classes_approv_rates.json" with { type: "json" };
 
 /***********************************************************************************
 ****************************** Funções Utilitárias *********************************
@@ -110,12 +113,12 @@ function createMultipleGroupedBarChart(css_selector_main, css_selector_subchart,
                     if (opts.selectedDataPoints[opts.seriesIndex].length === 1) {
                         idx_data_point = opts.dataPointIndex;
                         if (element_subchart.classList.contains("active")) {
-                            updateSubChart(id_subchart, records[2][idx_data_point]);
+                            updateSubChartGrouped(id_subchart, records[2][idx_data_point]);
                         } else {
                             element_main_chart.classList.add("chart-activated")
                             element_subchart.classList.add("active");
                             element_subchart.classList.remove("disable");
-                            updateSubChart(id_subchart, records[2][idx_data_point]);
+                            updateSubChartGrouped(id_subchart, records[2][idx_data_point]);
                         }
                     }
                     if (opts.selectedDataPoints[opts.seriesIndex].length === 0) {
@@ -125,7 +128,7 @@ function createMultipleGroupedBarChart(css_selector_main, css_selector_subchart,
                     }
                 },
                 updated:  function (chart) {
-                    updateSubChart(id_subchart, records[2][idx_data_point]);
+                    updateSubChartGrouped(id_subchart, records[2][idx_data_point]);
                 }
             }
         },
@@ -168,11 +171,11 @@ function createMultipleGroupedBarChart(css_selector_main, css_selector_subchart,
         if (opts.selectedDataPoints[opts.seriesIndex].length === 1) {
             idx_data_point = opts.dataPointIndex;
             if(element_subchart.classList.contains("active")) {
-                updateSubChart(id_subchart, records[2][idx_data_point]);
+                updateSubChartGrouped(id_subchart, records[2][idx_data_point]);
             } else {
                 element_main_chart.classList.add("chart-activated");
                 element_subchart.classList.add("active");
-                updateSubChart(id_subchart, records[2][idx_data_point]);
+                updateSubChartGrouped(id_subchart, records[2][idx_data_point]);
             }
         }
         if (opts.selectedDataPoints[opts.seriesIndex].length === 0) {
@@ -182,11 +185,11 @@ function createMultipleGroupedBarChart(css_selector_main, css_selector_subchart,
     });
 
     main_chart.addEventListener("updated", function (main_chart) {
-        updateSubChart(id_subchart, records[2][idx_data_point]);
+        updateSubChartGrouped(id_subchart, records[2][idx_data_point]);
     });
 }
 
-function updateSubChart(id_subchart, records) {
+function updateSubChartGrouped(id_subchart, records) {
     let series = null;
     if (records != null) {
         let keys = Object.keys(records);
@@ -201,18 +204,113 @@ function updateSubChart(id_subchart, records) {
     }
 }
 
+function createMultipleBarChart(css_selector_main, css_selector_subchart, records, x_label_1, x_label_2, y_label, subtitle_main, maxY = null, is_percentage = false) {
+    let id_main_chart = css_selector_main.replace("#", "");
+    let id_subchart = css_selector_subchart.replace("#", "");
+    let idx_data_point = null;
+    var options_main = {
+        series: [{name: y_label, data: records.y_axis}],
+        chart: {id: id_main_chart, type: "bar", height: 350, width: "100%",
+            events: {
+                dataPointSelection: function (e, chart, opts) {
+                    var element_subchart = document.querySelector(css_selector_subchart);
+                    var element_main_chart = document.querySelector(css_selector_main);
+                    if (element_main_chart != null && element_subchart != null && opts.selectedDataPoints[opts.seriesIndex].length === 1) {
+                        idx_data_point = opts.dataPointIndex;
+                        if (element_subchart.classList.contains("active")) {
+                            updateBarChart(id_subchart, records.subchart[idx_data_point], y_label, maxY, is_percentage);
+                        } else {
+                            element_main_chart.classList.add("chart-activated");
+                            element_subchart.classList.add("active");
+                            element_subchart.classList.remove("disable");
+                            updateBarChart(id_subchart, records.subchart[idx_data_point], y_label, maxY, is_percentage);
+                        }
+                    }
+                    if (element_main_chart != null && opts.selectedDataPoints[opts.seriesIndex].length === 0) {
+                        element_main_chart.classList.remove("chart-activated");
+                        element_subchart.classList.remove("active");
+                        element_subchart.classList.add("disable");
+                        idx_data_point = null;
+                    }
+                    chart.w.config.customData = idx_data_point;
+                },
+                updated:  function (chart) {
+                    updateBarChart(id_subchart, records.subchart[idx_data_point], y_label, maxY, is_percentage);
+                    chart.w.config.customData = idx_data_point;
+                }
+            }
+        },
+        plotOptions: {bar: {borderRadius: 4, horizontal: false, columnWidth: "35%", endingShape: "rounded"}},
+        dataLabels: {enabled: false},
+        theme: {palette: "palette3"},
+        xaxis: {categories: records.x_axis, title: {text: x_label_1}},
+        yaxis: {title: {text: y_label}, stepSize: 10, forceNiceScale: false, min: 0, max: maxY != null ? maxY : Math.max(...records.y_axis),
+                labels: {formatter: function (val) { return is_percentage ? val.toString() + "%" : Math.ceil(val).toString(); }}},
+        states: {
+            normal: {filter: {type: "desaturate"}},
+            active: {allowMultipleDataPointsSelection: false, filter: {type: "darken", value: 1}}},
+        subtitle: {text: subtitle_main, floating: true, offsetX: 15, offsetY: -5},
+        customData: null
+    };
+
+    var main_chart = new ApexCharts(document.querySelector(css_selector_main), options_main);
+    main_chart.render();
+
+    var options_subchart = {
+        series: [{name: y_label, data: []}],
+        chart: {id: id_subchart, type: "bar", height: 350, width: "100%"},
+        plotOptions: {bar: {borderRadius: 4, horizontal: false, columnWidth: "35%", endingShape: "rounded"}},
+        dataLabels: {enabled: false},
+        theme: {palette: "palette3"},
+        xaxis: {categories: [], title: {text: x_label_2}, labels: {rotate: -60}},
+        yaxis: {title: {text: y_label}}
+    };
+
+    var sub_chart = new ApexCharts(document.querySelector(css_selector_subchart), options_subchart);
+    sub_chart.render();
+
+    main_chart.addEventListener("dataPointSelection", function (e, main_chart, opts) {
+        var element_subchart = document.querySelector(id_subchart);
+        var element_main_chart = document.querySelector(id_main_chart);
+        if (element_main_chart != null && element_subchart != null && opts.selectedDataPoints[opts.seriesIndex].length === 1) {
+            idx_data_point = opts.dataPointIndex;
+            if (element_subchart.classList.contains("active")) {
+                updateBarChart(id_subchart, records.subchart[idx_data_point], y_label, maxY, is_percentage);
+            } else {
+                element_main_chart.classList.add("chart-activated");
+                element_subchart.classList.add("active");
+                updateBarChart(id_subchart, records.subchart[idx_data_point], y_label, maxY, is_percentage);
+            }
+        }
+        if (element_main_chart != null && opts.selectedDataPoints[opts.seriesIndex].length === 0) {
+            element_main_chart.classList.remove("chart-activated");
+            element_subchart.classList.remove("active");
+            idx_data_point = null;
+        }
+    });
+
+    main_chart.addEventListener("updated", function (main_chart) {
+        updateBarChart(id_subchart, records.subchart[idx_data_point], y_label, maxY, is_percentage);
+    });
+}
+
 async function downloadRawData(data_label) {
     let result = await getData(end_points[data_label]);
     createExcelFile(result, "raw_data", "Produção");
 }
 
-function updateBarChart(id_chart, records, maxY = null) {
-    let options = {
-        xaxis: {categories: records.x_axis},
-        yaxis: {min: 0, max: maxY != null ? maxY : Math.max(...records.y_axis)}
-    };
-    ApexCharts.exec(id_chart, "updateOptions", options, false, true);
-    ApexCharts.exec(id_chart, "updateSeries", [{data: records.y_axis}], true);
+function updateBarChart(id_chart, records, y_label = null, maxY = null, is_percentage = false) {
+    if (records != null) {
+        let options = {
+            xaxis: {categories: records.x_axis},
+            yaxis: {title: {text: (y_label != null) ? y_label : ""}, stepSize: 10, forceNiceScale: false,
+                    min: 0, max: maxY != null ? maxY : Math.max(...records.y_axis),
+                    labels: {formatter: function (val) { return is_percentage ? val.toString() + "%" : Math.ceil(val).toString(); }}
+            }
+        };
+        ApexCharts.exec(id_chart, "updateOptions", options);
+        ApexCharts.exec(id_chart, "updateSeries", [{data: records.y_axis}], true);
+    }
 }
 
 function updateGroupBarChart(id_chart, records) {
@@ -274,6 +372,45 @@ function initSimulation() {
 /***********************************************************************************
 ************************************* Análises *************************************
 ************************************************************************************/
+function getSuccessRateByPeriod(to_update = false) {
+    const only_active = document.getElementById("btOnlyActive5").checked;
+    let data = only_active ? data_success_rate.data_only_active : data_success_rate.data;
+    let result = Object.create({x_axis: data_success_rate.period.slice(
+        periodRange.idx_start, periodRange.idx_end + 1),
+        y_axis: data.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    if (!to_update) {
+        document.getElementById("title_success_rate_period").innerHTML = "Taxa de Sucesso por Período";
+        createBarChart("#success_rate_by_period", result, "Período", "Percentual", 100, true);
+    } else {
+        updateBarChart("success_rate_by_period", result);
+    }
+}
+
+function getApprovRatesByPeriodDiscipline(title_id, id_chart, id_subchart, only_si = true, to_update = false) {
+    const is_net_rate = document.getElementById("btOnlyActive6").checked;
+    let idx_data = is_net_rate ? 1 : 0;
+    console.log(is_net_rate, idx_data);
+    let data_chart = only_si ? data_si_approv_rates : data_other_approv_rates;
+    let result = Object.create({x_axis: data_chart.period.slice(
+        periodRange.idx_start, periodRange.idx_end + 1),
+        y_axis: data_chart.data[idx_data].slice(periodRange.idx_start, periodRange.idx_end + 1),
+        subchart: data_chart.subchart.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    result.subchart = result.subchart.map((x) => Object.create(
+        {x_axis: x.curr_component, y_axis: x.data[idx_data]}));
+    document.getElementById(title_id).innerHTML = `Taxa de Aprovação ${is_net_rate ? "Líquida " : ""}por Período e Disciplina <span> (${only_si ? "DSI" : "Outros"}) </span>`;
+    if (!to_update) {
+        createMultipleBarChart(id_chart, id_subchart, result, "Período", "Disciplina",
+            "Percentual", "(Clique na barra de um período para ver detalhes)", 100, true);
+    } else {
+        updateBarChart(id_chart.replace("#", ""), result, "Percentual", 100, true);
+        let idx_data_point = ApexCharts.getChartByID(id_chart.replace("#", "")).w.config.customData;
+        id_subchart = id_subchart.replace("#", "");
+        if (idx_data_point != null && document.getElementById(id_subchart).classList.contains("active")) {
+            updateBarChart(id_subchart, result.subchart[idx_data_point], "Percentual", 100, true);
+        }
+    }
+}
+
 function getIncomingByPeriod(to_update = false) {
     const only_active = document.getElementById("btOnlyActive1").checked;
     let data = only_active ? data_incoming.total_only_active : data_incoming.total;
@@ -407,7 +544,9 @@ function initDashboard(start_year = null, end_year = null, to_update = false) {
         getPeriodRange() : getPeriodRange(start_year, end_year);
     document.getElementById("start_year").value = periodRange.start;
     document.getElementById("end_year").value = periodRange.end;
-    console.log(start_year, end_year);
+    getSuccessRateByPeriod(to_update);
+    getApprovRatesByPeriodDiscipline("title_si_approv_rates",
+        "#si_approv_rate_period", "#si_approv_rate_classes", true, to_update);
     getIncomingByPeriod(to_update);
     getIncomingByPeriodType(to_update);
     getIncomingByPeriodStatus(to_update);
@@ -456,6 +595,23 @@ document.getElementById("btOnlyActive4").addEventListener("change", () => {
     periodRange = (start_year == null && end_year == null) ?
         getPeriodRange() : getPeriodRange(start_year, end_year);
     getPerformanceByPeriodStatus(true);
+});
+
+document.getElementById("btOnlyActive5").addEventListener("change", () => {
+    let start_year = document.getElementById("start_year").value;
+    let end_year = document.getElementById("end_year").value;
+    periodRange = (start_year == null && end_year == null) ?
+        getPeriodRange() : getPeriodRange(start_year, end_year);
+    getSuccessRateByPeriod(true);
+});
+
+document.getElementById("btOnlyActive6").addEventListener("change", () => {
+    let start_year = document.getElementById("start_year").value;
+    let end_year = document.getElementById("end_year").value;
+    periodRange = (start_year == null && end_year == null) ?
+        getPeriodRange() : getPeriodRange(start_year, end_year);
+    getApprovRatesByPeriodDiscipline("title_si_approv_rates",
+        "#si_approv_rate_period", "#si_approv_rate_classes", true, true);
 });
 
 document.getElementById("bt_update").addEventListener("click", () => {

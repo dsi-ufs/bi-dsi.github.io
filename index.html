@@ -381,6 +381,55 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-7">
+                        <h5 id="title_success_rate_period" class="card-title"></h5>
+                      </div>
+                      <div class="col-5">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <div class="form-check form-switch align_bt_switch">
+                            <input class="form-check-input" type="checkbox" id="btOnlyActive5" checked>
+                            <label class="form-check-label" for="btOnlyActive5"> Active Only </label>
+                          </div>
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="success_rate_by_period"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-7">
+                        <h5 id="title_si_approv_rates" class="card-title"></h5>
+                      </div>
+                      <div class="col-5">
+                        <div class="d-flex justify-content-end align_bt_download">
+                          <div class="form-check form-switch align_bt_switch">
+                            <input class="form-check-input" type="checkbox" id="btOnlyActive6">
+                            <label class="form-check-label" for="btOnlyActive6"> Net Rate? </label>
+                          </div>
+                          <button type="button" class="btn btn-outline-info btn-sm" onclick="">
+                            <i class="bi bi-download me-1"></i> Raw Data
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="si_approv_rate_period" class="main-chart chart-activated"></div>
+                    <div id="si_approv_rate_classes" class="apexcharts-canvas subchart apexcharts-theme- disable"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-7">
                         <h5 id="title_incoming_period" class="card-title"></h5>
                       </div>
                       <div class="col-5">
