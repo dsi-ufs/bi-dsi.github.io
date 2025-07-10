@@ -73,7 +73,13 @@
         "2023/3",
         "2023/4",
         "2024/1",
-        "2024/2"
+        "2024/2",
+        "2024/3",
+        "2024/4",
+        "2025/1",
+        "2025/2",
+        "2025/3",
+        "2025/4"
     ],
     "status": [
         "APROVADO",
@@ -156,6 +162,12 @@
             0,
             0,
             729,
+            555,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
         ],
         [
@@ -232,6 +244,12 @@
             0,
             0,
             94,
+            67,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
         ],
         [
@@ -308,6 +326,12 @@
             0,
             0,
             139,
+            69,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
         ],
         [
@@ -384,6 +408,12 @@
             0,
             0,
             73,
+            29,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
         ]
     ],
@@ -4140,6 +4170,266 @@
                     3,
                     1,
                     5
+                ]
+            ]
+        },
+        {
+            "curr_component": [
+                "SINF0005 - LP",
+                "SINF0006 - ED1",
+                "SINF0007 - ED2",
+                "SINF0010 - ICC",
+                "SINF0012 - LFT",
+                "SINF0013 - MAT. DISC.",
+                "SINF0014 - LÓGICA",
+                "SINF0015 - OAC",
+                "SINF0020 - SD",
+                "SINF0032 - QS",
+                "SINF0036 - ASS",
+                "SINF0040 - TESI",
+                "SINF0053 - BD1",
+                "SINF0057 - ÉTICA",
+                "SINF0059 - GSI",
+                "SINF0061 - MD",
+                "SINF0063 - P1",
+                "SINF0064 - P2",
+                "SINF0066 - REDES I",
+                "SINF0067 - REDES II",
+                "SINF0068 - SAD",
+                "SINF0071 - SO",
+                "SINF0077 - ES1"
+            ],
+            "status": [
+                "APROVADO",
+                "REPROVADO",
+                "OUTROS",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    20,
+                    14,
+                    20,
+                    22,
+                    16,
+                    22,
+                    3,
+                    20,
+                    30,
+                    25,
+                    19,
+                    20,
+                    18,
+                    40,
+                    41,
+                    13,
+                    11,
+                    23,
+                    7,
+                    36,
+                    23,
+                    18,
+                    18
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    4,
+                    0,
+                    10,
+                    0,
+                    2,
+                    1,
+                    2,
+                    4,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    3,
+                    20,
+                    0,
+                    4,
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    2,
+                    5,
+                    0,
+                    0,
+                    1,
+                    12,
+                    7,
+                    1,
+                    1,
+                    0,
+                    0,
+                    1,
+                    1,
+                    9,
+                    2,
+                    0,
+                    6,
+                    6,
+                    1,
+                    1,
+                    4,
+                    0,
+                    0
+                ],
+                [
+                    3,
+                    2,
+                    2,
+                    3,
+                    1,
+                    4,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "curr_component": [
+                "SEM REGISTROS"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ]
+            ]
+        },
+        {
+            "curr_component": [
+                "SEM REGISTROS"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ]
+            ]
+        },
+        {
+            "curr_component": [
+                "SEM REGISTROS"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ]
+            ]
+        },
+        {
+            "curr_component": [
+                "SEM REGISTROS"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ]
+            ]
+        },
+        {
+            "curr_component": [
+                "SEM REGISTROS"
+            ],
+            "status": [
+                "APROVADO",
+                "OUTROS",
+                "REPROVADO",
+                "TRANCADO"
+            ],
+            "data": [
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
+                ],
+                [
+                    0
                 ]
             ]
         },
