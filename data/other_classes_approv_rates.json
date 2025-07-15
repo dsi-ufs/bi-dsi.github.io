@@ -1,788 +1,116 @@
 {
     "period": [
-        "2006/1",
-        "2006/2",
-        "2006/3",
-        "2006/4",
-        "2007/1",
-        "2007/2",
-        "2007/3",
-        "2007/4",
-        "2008/1",
-        "2008/2",
-        "2008/3",
-        "2008/4",
-        "2009/1",
-        "2009/2",
-        "2009/3",
-        "2009/4",
-        "2010/1",
-        "2010/2",
-        "2010/3",
-        "2010/4",
-        "2011/1",
-        "2011/2",
-        "2011/3",
-        "2011/4",
-        "2012/1",
-        "2012/2",
-        "2012/3",
-        "2012/4",
         "2013/1",
         "2013/2",
-        "2013/3",
-        "2013/4",
         "2014/1",
         "2014/2",
-        "2014/3",
-        "2014/4",
         "2015/1",
         "2015/2",
-        "2015/3",
-        "2015/4",
         "2016/1",
         "2016/2",
-        "2016/3",
-        "2016/4",
         "2017/1",
         "2017/2",
-        "2017/3",
-        "2017/4",
         "2018/1",
         "2018/2",
-        "2018/3",
-        "2018/4",
         "2019/1",
         "2019/2",
-        "2019/3",
-        "2019/4",
         "2020/1",
         "2020/2",
-        "2020/3",
-        "2020/4",
         "2021/1",
         "2021/2",
-        "2021/3",
-        "2021/4",
         "2022/1",
         "2022/2",
-        "2022/3",
-        "2022/4",
         "2023/1",
         "2023/2",
-        "2023/3",
-        "2023/4",
         "2024/1",
-        "2024/2",
-        "2024/3",
-        "2024/4",
-        "2025/1",
-        "2025/2",
-        "2025/3",
-        "2025/4"
+        "2024/2"
     ],
     "data": [
         [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
             55.23,
             47.45,
-            0.0,
-            0.0,
             66.67,
             52.81,
-            0.0,
-            0.0,
             62.82,
             64.09,
-            0.0,
-            0.0,
             61.44,
             60.77,
-            0.0,
-            0.0,
             57.59,
             56.41,
-            0.0,
-            0.0,
             60.47,
             59.13,
-            0.0,
-            0.0,
             63.53,
             67.64,
-            0.0,
-            0.0,
             75.89,
             71.83,
-            0.0,
-            0.0,
             67.76,
             64.16,
-            0.0,
-            0.0,
             72.22,
             79.45,
-            0.0,
-            0.0,
             79.54,
             79.15,
-            0.0,
-            0.0,
             73.49,
-            77.3,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
+            77.3
         ],
         [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
             59.51,
             52.34,
-            0.0,
-            0.0,
             69.01,
             54.64,
-            0.0,
-            0.0,
             70.5,
             72.29,
-            0.0,
-            0.0,
             68.17,
             67.02,
-            0.0,
-            0.0,
             66.51,
             61.62,
-            0.0,
-            0.0,
             66.9,
             62.75,
-            0.0,
-            0.0,
             68.98,
             73.35,
-            0.0,
-            0.0,
             80.62,
             76.37,
-            0.0,
-            0.0,
             71.19,
             68.1,
-            0.0,
-            0.0,
             78.0,
             82.04,
-            0.0,
-            0.0,
             82.32,
             82.05,
-            0.0,
-            0.0,
             79.33,
-            80.55,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
+            80.55
         ],
         [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
             4.28,
             4.89,
-            0.0,
-            0.0,
             2.35,
             1.83,
-            0.0,
-            0.0,
             7.68,
             8.2,
-            0.0,
-            0.0,
             6.73,
             6.25,
-            0.0,
-            0.0,
             8.92,
             5.21,
-            0.0,
-            0.0,
             6.43,
             3.62,
-            0.0,
-            0.0,
             5.45,
             5.72,
-            0.0,
-            0.0,
             4.74,
             4.55,
-            0.0,
-            0.0,
             3.44,
             3.94,
-            0.0,
-            0.0,
             5.78,
             2.59,
-            0.0,
-            0.0,
             2.78,
             2.9,
-            0.0,
-            0.0,
             5.84,
-            3.25,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
+            3.25
         ]
     ],
     "subchart": [
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "LETRI0063 - INGLÊS INST. I",
-                "MATI0020 - VET. E GEO. ANALÍT."
+                "LETRI0063 - ING.I. I",
+                "MATI0020 - VET.GEO."
             ],
             "data": [
                 [
@@ -804,12 +132,12 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
                 "MATI0017 - CÁLCULO I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -840,40 +168,8 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "LETRI0063 - INGLÊS INST. I"
+                "LETRI0063 - ING.I. I"
             ],
             "data": [
                 [
@@ -892,13 +188,13 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
-                "LETRI0063 - INGLÊS INST. I",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
+                "LETRI0063 - ING.I. I",
                 "MATI0017 - CÁLCULO I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -932,41 +228,9 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "LETRI0063 - INGLÊS INST. I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "LETRI0063 - ING.I. I",
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -988,10 +252,10 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1020,43 +284,11 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
                 "COMP0210 - FC",
                 "LETRI0004 - PRT I",
-                "LETRI0063 - INGLÊS INST. I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "LETRI0063 - ING.I. I",
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1084,11 +316,11 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
-                "LETRI0063 - INGLÊS INST. I",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
+                "LETRI0063 - ING.I. I",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1120,42 +352,10 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "LETRI0063 - INGLÊS INST. I",
+                "LETRI0063 - ING.I. I",
                 "MATI0017 - CÁLCULO I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1180,10 +380,10 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1212,40 +412,8 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "MATI0054 - PROBAB. E ESTAT."
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1264,10 +432,10 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1296,41 +464,9 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
                 "MATI0017 - CÁLCULO I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1352,10 +488,10 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1384,41 +520,9 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "LETRI0063 - INGLÊS INST. I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "LETRI0063 - ING.I. I",
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1440,10 +544,10 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1472,42 +576,10 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
                 "LETRI0004 - PRT I",
-                "LETRI0063 - INGLÊS INST. I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "LETRI0063 - ING.I. I",
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1532,11 +604,11 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
-                "LETRI0063 - INGLÊS INST. I",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
+                "LETRI0063 - ING.I. I",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1568,41 +640,9 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "LETRI0063 - INGLÊS INST. I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "LETRI0063 - ING.I. I",
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1624,11 +664,11 @@
         },
         {
             "curr_component": [
-                "ADMI0001 - INTRO. A ADM.",
-                "ADMI0008 - INIC. EMP.",
-                "ADMI0010 - SOC. DAS ORG.",
-                "EDUI0040 - METOD. CIENT.",
-                "LETRI0063 - INGLÊS INST. I",
+                "ADMI0001 - I.ADM.",
+                "ADMI0008 - I.EMP.",
+                "ADMI0010 - SOCIOL.",
+                "EDUI0040 - M.C.",
+                "LETRI0063 - ING.I. I",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1660,43 +700,11 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
                 "ADMI0028 - OMSA",
-                "ADMI0052 - FUND. DE ADM.",
-                "LETRI0063 - INGLÊS INST. I",
+                "ADMI0052 - F.ADM.",
+                "LETRI0063 - ING.I. I",
                 "MATI0017 - CÁLCULO I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1725,12 +733,12 @@
         {
             "curr_component": [
                 "ADMI0002 - TGA",
-                "ADMI0010 - SOC. DAS ORG.",
+                "ADMI0010 - SOCIOL.",
                 "ADMI0028 - OMSA",
-                "ADMI0063 - EMPREEND.",
-                "EDUI0053 - METOD. CIENT.",
-                "LETRI0063 - INGLÊS INST. I",
-                "MATI0054 - PROBAB. E ESTAT."
+                "ADMI0063 - EMP.",
+                "EDUI0053 - M.C.",
+                "LETRI0063 - ING.I. I",
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1764,43 +772,11 @@
         },
         {
             "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "ADMI0010 - SOC. DAS ORG.",
-                "ADMI0052 - FUND. DE ADM.",
-                "EDUI0053 - METOD. CIENT.",
+                "ADMI0010 - SOCIOL.",
+                "ADMI0052 - F.ADM.",
+                "EDUI0053 - M.C.",
                 "LETRI0004 - PRT I",
-                "LETRI0063 - INGLÊS INST. I",
+                "LETRI0063 - ING.I. I",
                 "MATI0017 - CÁLCULO I"
             ],
             "data": [
@@ -1833,8 +809,8 @@
         {
             "curr_component": [
                 "ADMI0028 - OMSA",
-                "ADMI0063 - EMPREEND.",
-                "MATI0054 - PROBAB. E ESTAT."
+                "ADMI0063 - EMP.",
+                "MATI0054 - PROB.EST."
             ],
             "data": [
                 [
@@ -1851,102 +827,6 @@
                     7.22,
                     8.33,
                     1.24
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
-                ]
-            ]
-        },
-        {
-            "curr_component": [
-                "SEM REGISTROS"
-            ],
-            "data": [
-                [
-                    0
-                ],
-                [
-                    0
-                ],
-                [
-                    0
                 ]
             ]
         }

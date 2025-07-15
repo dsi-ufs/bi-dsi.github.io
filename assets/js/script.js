@@ -45,21 +45,36 @@ function createExcelFile(data, key_main_data, label_main_data, key_other_data = 
 
 function getPeriodRange(start_period = null, end_period = null) {
     let num_period = 9;
-    let period = data_incoming.period.slice(-num_period);
+    let period = data_incoming.entry_type.period.slice(-num_period);
     let result = {start: period[0], end: period.at(-1)};
     if (start_period == null && end_period != null && "\d{4}/[1-4]".test(end_period)) {
-        idx = data_incoming.index.indexOf(end_period);
-        period = data_incoming.index.slide((idx - num_period), (idx + 1));
+        idx = data_incoming.entry_type.period.indexOf(end_period);
+        if (idx != -1) {
+            period = data_incoming.entry_type.period.slide((idx - num_period), (idx + 1));
+        }
     }
     if (end_period == null && start_period != null && "\d{4}/[1-4]".test(start_period)) {
-        idx = data_incoming.index.indexOf(start_period);
-        period = data_incoming.index.slide(idx, (idx + num_period + 1));
+        idx = data_incoming.entry_type.period.indexOf(start_period);
+        if (idx != -1) {
+            period = data_incoming.entry_type.period.slide(idx, (idx + num_period + 1));
+        }
     }
-    result["start"] = period[0];
-    result["end"] = period.at(-1);
-    result["idx_start"] = data_incoming.period.indexOf(result.start);
-    result["idx_end"] = data_incoming.period.indexOf(result.end);
+    result["start"] = (start_period == null) ? period[0] : start_period;
+    result["end"] = (end_period == null) ? period.at(-1) : end_period;
     return result;
+}
+
+function findValidPeriod(periods, only_year = false) {
+    let idx_start = periods.indexOf(only_year ? parseInt(periodRange.start.split("/")[0]) : periodRange.start);
+    let idx_end = periods.indexOf(only_year ? parseInt(periodRange.end.split("/")[0]) : periodRange.end);
+    if (idx_start == -1) {
+        idx_start = periods.findIndex((item) => parseInt(item.split("/")[0]) >= parseInt(periodRange.start.split("/")[0]));
+    }
+    if (idx_end == -1) {
+        idx_end = periods.findLastIndex((item) => parseInt(item.split("/")[0]) <= parseInt(periodRange.end.split("/")[0]));
+    }
+    let idx_period = {start: idx_start, end: idx_end};
+    return idx_period;
 }
 
 function createBarChart(css_selector, records, x_label, y_label, maxY = null, is_percentage = false) {
@@ -320,64 +335,14 @@ function updateGroupBarChart(id_chart, records) {
 }
 
 /***********************************************************************************
-**************************** Simulação de Credenciamento ***************************
-************************************************************************************/
-function initSimulation() {
-    document.getElementById("form_accred_score").addEventListener("submit",
-        async function(event) {
-            const action = `${PROTOCOL}://${HOST}:8000/accreditation/calc-score/`;
-            const div_loading = document.getElementById("div_loading");
-            const body = document.body;
-            div_loading.style.display = "inline";
-            body.classList.add("opacity");
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-
-            let result = null;
-            await fetch(action, {method: form.method, body: formData})
-            .then(response => {
-                if (!response.ok) {
-                    div_loading.style.display = "none";
-                    body.classList.remove("opacity");
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then(data => {
-                dataSimulation = data;
-            })
-            .catch(error => {
-                div_loading.style.display = "none";
-                body.classList.remove("opacity");
-                console.error("[DEBUG] Error:", error);
-            });
-            if (dataSimulation != null) {
-                div_loading.style.display = "none";
-                body.classList.remove("opacity");
-                document.getElementById("div_score").removeAttribute("hidden");
-                document.getElementById("accreditation_score").innerHTML = "Sua pontuação é: " + dataSimulation.pqt;
-                console.log(dataSimulation);
-            }
-        }
-    );
-
-    document.getElementById("bt_download").addEventListener("click", function() {
-        if (dataSimulation != null) {
-            createExcelFile(dataSimulation, "production_researcher", "Produção", "stats_researcher", "Pontuação");
-        }
-    });
-}
-
-/***********************************************************************************
 ************************************* Análises *************************************
 ************************************************************************************/
 function getSuccessRateByPeriod(to_update = false) {
     const only_active = document.getElementById("btOnlyActive5").checked;
     let data = only_active ? data_success_rate.data_only_active : data_success_rate.data;
-    let result = Object.create({x_axis: data_success_rate.period.slice(
-        periodRange.idx_start, periodRange.idx_end + 1),
-        y_axis: data.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    let idx_year = findValidPeriod(data.year, true);
+    let result = Object.create({x_axis: data.year.slice(idx_year.start, idx_year.end + 1),
+        y_axis: data.success_rate.slice(idx_year.start, idx_year.end + 1)});
     if (!to_update) {
         document.getElementById("title_success_rate_period").innerHTML = "Taxa de Sucesso por Período";
         createBarChart("#success_rate_by_period", result, "Período", "Percentual", 100, true);
@@ -389,12 +354,11 @@ function getSuccessRateByPeriod(to_update = false) {
 function getApprovRatesByPeriodDiscipline(title_id, id_chart, id_subchart, only_si = true, to_update = false) {
     const is_net_rate = document.getElementById("btOnlyActive6").checked;
     let idx_data = is_net_rate ? 1 : 0;
-    console.log(is_net_rate, idx_data);
     let data_chart = only_si ? data_si_approv_rates : data_other_approv_rates;
-    let result = Object.create({x_axis: data_chart.period.slice(
-        periodRange.idx_start, periodRange.idx_end + 1),
-        y_axis: data_chart.data[idx_data].slice(periodRange.idx_start, periodRange.idx_end + 1),
-        subchart: data_chart.subchart.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    let idx_period = findValidPeriod(data_chart.period);
+    let result = Object.create({x_axis: data_chart.period.slice(idx_period.start, idx_period.end + 1),
+        y_axis: data_chart.data[idx_data].slice(idx_period.start, idx_period.end + 1),
+        subchart: data_chart.subchart.slice(idx_period.start, idx_period.end + 1)});
     result.subchart = result.subchart.map((x) => Object.create(
         {x_axis: x.curr_component, y_axis: x.data[idx_data]}));
     document.getElementById(title_id).innerHTML = `Taxa de Aprovação ${is_net_rate ? "Líquida " : ""}por Período e Disciplina <span> (${only_si ? "DSI" : "Outros"}) </span>`;
@@ -413,10 +377,10 @@ function getApprovRatesByPeriodDiscipline(title_id, id_chart, id_subchart, only_
 
 function getIncomingByPeriod(to_update = false) {
     const only_active = document.getElementById("btOnlyActive1").checked;
-    let data = only_active ? data_incoming.total_only_active : data_incoming.total;
-    let result = Object.create({x_axis: data_incoming.period.slice(
-        periodRange.idx_start, periodRange.idx_end + 1),
-        y_axis: data.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    let data = only_active ? data_incoming.entry_type_only_active : data_incoming.entry_type;
+    let idx_period = findValidPeriod(data.period);
+    let result = Object.create({x_axis: data.period.slice(idx_period.start, idx_period.end + 1),
+        y_axis: data.total.slice(idx_period.start, idx_period.end + 1)});
     if (!to_update) {
         document.getElementById("title_incoming_period").innerHTML = "Ingressantes por Período";
         createBarChart("#incoming_by_period", result, "Período", "Nº. de Discentes");
@@ -427,11 +391,12 @@ function getIncomingByPeriod(to_update = false) {
 
 function getIncomingByPeriodType(to_update = false) {
     const only_active = document.getElementById("btOnlyActive2").checked;
-    let data = [only_active ? data_incoming.entry_type_only_active : data_incoming.entry_type];
-    data[1] = only_active ? data_incoming.data_entry_type_only_active : data_incoming.data_entry_type;
-    let result = [data_incoming.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
-    result[1] = data[0].map((x, idx) => Object.create({name: x, data: data[1][idx].slice(
-        periodRange.idx_start, periodRange.idx_end + 1)}));
+    let data = [only_active ? data_incoming.entry_type_only_active.entry_type : data_incoming.entry_type.entry_type];
+    data[1] = only_active ? data_incoming.entry_type_only_active.data : data_incoming.entry_type.data;
+    let period = only_active ? data_incoming.entry_type_only_active.period : data_incoming.entry_type.period;
+    let idx_period = findValidPeriod(period);
+    let result = [period.slice(idx_period.start, idx_period.end + 1)];
+    result[1] = data[0].map((x, idx) => Object.create({name: x, data: data[1][idx].slice(idx_period.start, idx_period.end + 1)}));
     if (!to_update) {
         document.getElementById("title_incoming_period_type").innerHTML = "Ingressantes por Período e Tipo de Entrada";
         createGroupedBarChart("#incoming_by_period_type", result, "Período", "Nº. de Discentes");
@@ -441,10 +406,10 @@ function getIncomingByPeriodType(to_update = false) {
 }
 
 function getIncomingByPeriodStatus(to_update = false) {
-    let result = [data_incoming.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
-    result[1] = data_incoming.status.map((x, idx) => Object.create({name: x,
-        data: data_incoming.data_status[idx].slice(
-            periodRange.idx_start, periodRange.idx_end + 1)}));
+    let idx_period = findValidPeriod(data_incoming.status.period);
+    let result = [data_incoming.status.period.slice(idx_period.start, idx_period.end + 1)];
+    result[1] = data_incoming.status.status.map((x, idx) => Object.create({name: x,
+        data: data_incoming.status.data[idx].slice(idx_period.start, idx_period.end + 1)}));
     if (!to_update) {
         document.getElementById("title_incoming_period_status").innerHTML = "Ingressantes por Período e Situação";
         createGroupedBarChart("#incoming_by_period_status", result, "Período", "Nº. de Discentes");
@@ -455,10 +420,11 @@ function getIncomingByPeriodStatus(to_update = false) {
 
 function getActiveByPeriod(to_update = false) {
     const only_active = document.getElementById("btOnlyActive3").checked;
-    let data = only_active ? data_active.total_only_active : data_active.total;
-    let result = Object.create({x_axis: data_active.period.slice(
-        periodRange.idx_start, periodRange.idx_end + 1),
-        y_axis: data.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    let data = only_active ? data_active.only_active : data_active.all_data;
+    let idx_period = findValidPeriod(data.period);
+    let result = Object.create({
+        x_axis: data.period.slice(idx_period.start, idx_period.end + 1),
+        y_axis: data.total.slice(idx_period.start, idx_period.end + 1)});
     if (!to_update) {
         document.getElementById("title_active_period").innerHTML = "Ativos por Período";
         createBarChart("#active_by_period", result, "Período", "Nº. de Discentes");
@@ -469,11 +435,13 @@ function getActiveByPeriod(to_update = false) {
 
 function getPerformanceByPeriodStatus(to_update = false) {
     const only_active = document.getElementById("btOnlyActive4").checked;
-    let data = [data_active.status];
-    data[1] = only_active ? data_active.data_only_active: data_active.data;
-    let result = [data_active.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
-    result[1] = data[0].map((x, idx) => Object.create({name: x, data: data[1][idx].slice(
-        periodRange.idx_start, periodRange.idx_end + 1)}));
+    let data = [only_active ? data_active.only_active.status: data_active.all_data.status];
+    data[1] = only_active ? data_active.only_active.data: data_active.all_data.data;
+    let period = only_active ? data_active.only_active.period: data_active.all_data.period;
+    let idx_period = findValidPeriod(period);
+    let result = [period.slice(idx_period.start, idx_period.end + 1)];
+    result[1] = data[0].map((x, idx) => Object.create({name: x,
+        data: data[1][idx].slice(idx_period.start, idx_period.end + 1)}));
     if (!to_update) {
         document.getElementById("title_performance_period_entry").innerHTML = "Rendimento por Entrada e Período";
         createGroupedBarChart("#performance_by_period_entry", result, "Período", "Nº. de Discentes");
@@ -483,21 +451,23 @@ function getPerformanceByPeriodStatus(to_update = false) {
 }
 
 function getEgressByPeriod(to_update = false) {
-    let result = Object.create({x_axis: data_egress.period.slice(
-        periodRange.idx_start, periodRange.idx_end + 1),
-        y_axis: data_egress.total.slice(periodRange.idx_start, periodRange.idx_end + 1)});
+    let idx_period = findValidPeriod(data_egress.period);
+    let result = Object.create({
+        x_axis: data_egress.period.slice(idx_period.start, idx_period.end + 1),
+        y_axis: data_egress.total.slice(idx_period.start, idx_period.end + 1)});
     if (!to_update) {
         document.getElementById("title_egress_period").innerHTML = "Egressos por Período";
         createBarChart("#egress_by_period", result, "Período", "Nº. de Discentes");
     } else {
-        updateBarChart("active_by_period", result);
+        updateBarChart("egress_by_period", result);
     }
 }
 
 function getEgressByPeriodType(to_update = false) {
-    let result = [data_egress.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    let idx_period = findValidPeriod(data_egress.period);
+    let result = [data_egress.period.slice(idx_period.start, idx_period.end + 1)];
     result[1] = data_egress.entry_type.map((x, idx) => Object.create({name: x,
-        data: data_egress.data_entry_type[idx].slice(periodRange.idx_start, periodRange.idx_end + 1)}));
+        data: data_egress.data_entry_type[idx].slice(idx_period.start, idx_period.end + 1)}));
     if (!to_update) {
         document.getElementById("title_egress_period_type").innerHTML = "Egressos por Período e Tipo de Entrada";
         createGroupedBarChart("#egress_by_period_type", result, "Período", "Nº. de Discentes");
@@ -508,30 +478,28 @@ function getEgressByPeriodType(to_update = false) {
 
 function getDisciplineByPeriodStatus(title_id, id_chart, id_subchart, only_si = true, to_update = false) {
     let data_chart = only_si ? data_si_classes : data_other_classes;
-    let result = [data_chart.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    let idx_period = findValidPeriod(data_chart.period);
+    let result = [data_chart.period.slice(idx_period.start, idx_period.end + 1)];
     result[1] = data_chart.status.map((x, idx) => Object.create({name: x,
-        data: data_chart.data[idx].slice(periodRange.idx_start, periodRange.idx_end + 1)}));
-    result[2] = data_chart.subchart.slice(periodRange.idx_start, periodRange.idx_end + 1);
+        data: data_chart.data[idx].slice(idx_period.start, idx_period.end + 1)}));
+    result[2] = data_chart.subchart.slice(idx_period.start, idx_period.end + 1);
     if (!to_update) {
         document.getElementById(title_id).innerHTML = `Disciplinas por Período e Situação <span> (${only_si ? "DSI" : "Outros"}) </span>`;
-        // createMultipleGroupedBarChart(id_chart, id_subchart, result, "Period", "Class",
-        //     "Number of Students", "(Click on any period bar to see details)");
         createMultipleGroupedBarChart(id_chart, id_subchart, result, "Período", "Disciplina",
             "Nº. de Discentes", "(Clique em qualquer barra de um período para ver detalhes)");
     } else {
-        updateGroupBarChart(id_chart, result);
+        updateGroupBarChart(id_chart.replace("#", ""), result);
     }
 }
 
 function getActivityByPeriodStatus(to_update = false) {
-    let result = [data_activity.period.slice(periodRange.idx_start, periodRange.idx_end + 1)];
+    let idx_period = findValidPeriod(data_activity.period);
+    let result = [data_activity.period.slice(idx_period.start, idx_period.end + 1)];
     result[1] = data_activity.status.map((x, idx) => Object.create({name: x,
-        data: data_activity.data[idx].slice(periodRange.idx_start, periodRange.idx_end + 1)}));
-    result[2] = data_activity.subchart.slice(periodRange.idx_start, periodRange.idx_end + 1);
+        data: data_activity.data[idx].slice(idx_period.start, idx_period.end + 1)}));
+    result[2] = data_activity.subchart.slice(idx_period.start, idx_period.end + 1);
     if (!to_update) {
         document.getElementById("title_activity_period_status").innerHTML = "Atividades por Período e Situação";
-        // createMultipleGroupedBarChart("#activity_result_period", "#activity_result_status_period",
-        //     result, "Period", "Activity", "Number of Students", "(Click on any period bar to see details)");
         createMultipleGroupedBarChart("#activity_result_period", "#activity_result_status_period",
             result, "Período", "Atividade", "Nº. de Discentes", "(Clique em qualquer barra de um período para ver detalhes)");
     } else {
@@ -554,10 +522,8 @@ function initDashboard(start_year = null, end_year = null, to_update = false) {
     getEgressByPeriod(to_update);
     getEgressByPeriodType(to_update);
     getPerformanceByPeriodStatus(to_update);
-    getDisciplineByPeriodStatus("title_discipline_period_status",
-        "#discipline_result_period", "#discipline_result_status_period", true, to_update);
-    getDisciplineByPeriodStatus("title_other_class_period_status",
-        "#other_class_result_period", "#other_class_result_type_period", false, to_update);
+    getDisciplineByPeriodStatus("title_discipline_period_status", "#discipline_result_period", "#discipline_result_status_period", true, to_update);
+    getDisciplineByPeriodStatus("title_other_class_period_status", "#other_class_result_period", "#other_class_result_type_period", false, to_update);
     getActivityByPeriodStatus(to_update);
 }
 
